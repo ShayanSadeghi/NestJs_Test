@@ -19,5 +19,9 @@ export class UserService{
     async update(user){
         await this.userModel.updateOne({Username:user.Username},user);
     }
+
+    async delete(id){
+        await this.userModel.deleteOne({_id: id})
+    }
 }
 
