@@ -13,4 +13,9 @@ export class UsersController {
     async Add(@Body() user:any){
         await this.service.add(user)
     }
+
+    @Post('update')
+    async Update(@Body() user:any){
+        await this.service.update(user);
+    }
 }

@@ -15,5 +15,9 @@ export class UserService{
         const createUser = new this.userModel(user)
         await createUser.save();
     }
+
+    async update(user){
+        await this.userModel.updateOne({Username:user.Username},user);
+    }
 }
 
