@@ -10,5 +10,10 @@ export class UserService{
     async getAll(){
         return await this.userModel.find();
     }
+
+    async add(user){
+        const createUser = new this.userModel(user)
+        await createUser.save();
+    }
 }
 
