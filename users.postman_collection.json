@@ -34,7 +34,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"Name\": \"Shayan\",\n    \"Username\": \"shayan\",\n    \"Email\": \"ShayanSadeghi1996@gmail.com\",\n    \"Phone\": \"+989215251927\"\n}",
+					"raw": "{\n    \"Name\": \"Shayan_sadeghi\",\n    \"Username\": \"shayan\",\n    \"Email\": \"ShayanSadeghi1996@gmail.com\",\n    \"Phone\": \"+989215251927\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -61,11 +61,11 @@
 		{
 			"name": "Update User by username",
 			"request": {
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"Name\": \"Shayan\",\n    \"Username\": \"shayan\",\n    \"Email\": \"ShayanSadeghi1996@gmail.com\",\n    \"Phone\": \"+989215251927\"\n}",
+					"raw": "{\n    \"Name\": \"Shayan___\",\n    \"Username\": \"shayan\",\n    \"Email\": \"ShayanSadeghi1996@gmail.com\",\n    \"Phone\": \"+989215251927\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -95,7 +95,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "127.0.0.1:3000/users/delete/6224cc6d5381c84231ecf01c",
+					"raw": "127.0.0.1:3000/users/delete/6226468af2c3616e22375a64",
 					"host": [
 						"127",
 						"0",
@@ -106,7 +106,7 @@
 					"path": [
 						"users",
 						"delete",
-						"6224cc6d5381c84231ecf01c"
+						"6226468af2c3616e22375a64"
 					]
 				}
 			},
