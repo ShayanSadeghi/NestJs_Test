@@ -3,17 +3,16 @@ import {
   Logger,
   Get,
   Post,
+  Put,
   Delete,
   Body,
   Param,
 } from '@nestjs/common';
 import { Client, Transport, ClientProxy } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
-import { UserService } from '../Services/users.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(private service: UserService) {}
   logger = new Logger('AppController');
 
   @Client({
@@ -25,28 +24,27 @@ export class UsersController {
   client: ClientProxy;
 
   @Get('all')
-  async GetAll() {
-    return await this.service.getAll();
+  getUsers(): Observable<any> {
+    this.logger.log('client#send -> topic: "get-users" ');
+    return this.client.send('get-users', {});
   }
 
   @Post('add')
-  async Add(@Body() user: any) {
-    await this.service.add(user);
+  Add(@Body() user: any) {
+    this.logger.log('client#send -> topic: add-user');
+    this.client.emit('add-user', user);
   }
 
-  @Post('update')
-  async Update(@Body() user: any) {
-    await this.service.update(user);
+  @Put('update')
+  Update(@Body() user: any) {
+    this.logger.log('client#send -> topic: update-user');
+    this.client.emit('update-user', user);
   }
 
   @Delete('delete/:id')
-  async Delete(@Param('id') id) {
-    await this.service.delete(id);
-  }
-
-  @Get('users')
-  getTest(): Observable<any> {
-    this.logger.log('client#send -> topic: "testing" ');
-    return this.client.send('get-users', {});
+  Delete(@Param('id') id) {
+    this.logger.log('client#send -> topic: delete-user');
+    let res = this.client.emit('delete-user', id);
+    console.log(res);
   }
 }
