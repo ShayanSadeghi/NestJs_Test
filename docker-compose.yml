@@ -1,0 +1,33 @@
+version: '1.0'
+
+services:
+  gateway:
+    container_name: gateway
+    image: my_app_gateway
+    ports:
+      - 3000:3000
+    networks:
+      - my-net
+
+  microservice:
+    container_name: user_microservice
+    image:  my_app_microservice
+    networks:
+      - my-net
+
+  nats:
+    container_name: nats
+    image: nats
+    entrypoint: '/nats-server -c nats-server.conf -DV'
+    networks:
+      - my-net
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    networks:
+      - my-net
+
+networks:
+  my-net:
+      name: my-network
